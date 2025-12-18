@@ -46,13 +46,7 @@ public class Conflict {
     @OneToMany(mappedBy = "conflict", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Event> events = new HashSet<>();
 
-
-    // constructors, getters, setters
     public Conflict() {}
-
-
-// ... getters/setters omitted for brevity in doc (implement in project)
-
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
