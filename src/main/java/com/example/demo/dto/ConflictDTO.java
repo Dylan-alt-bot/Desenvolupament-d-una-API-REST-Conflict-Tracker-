@@ -2,7 +2,7 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Status;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 
 public class ConflictDTO {
@@ -11,7 +11,7 @@ public class ConflictDTO {
     private LocalDate startDate;
     private Status status;
     private String description;
-    private Set<String> countryCodes; // només codi per simplificar la vista
+    private List<CountryDTO> countryCodes; // només codi per simplificar la vista
 
 
     // getters/setters
@@ -25,6 +25,7 @@ public class ConflictDTO {
     public void setStatus(Status status) { this.status = status; }
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    public Set<String> getCountryCodes() { return countryCodes; }
-    public void setCountryCodes(Set<String> countryCodes) { this.countryCodes = countryCodes; }
+    public List<CountryDTO> getCountryCodes() { return countryCodes; }
+    public void setCountryCodes(List<CountryDTO> countryCodes) { this.countryCodes = countryCodes; }
+
 }

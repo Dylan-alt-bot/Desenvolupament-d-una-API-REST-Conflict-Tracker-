@@ -59,4 +59,16 @@ public class Event {
     public String getDescription() {
         return description;
     }
+
+    public Conflict getConflict() {
+        return conflict;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setConflict(Conflict conflict) {
+        this.conflict = conflict;
+    }
 }
