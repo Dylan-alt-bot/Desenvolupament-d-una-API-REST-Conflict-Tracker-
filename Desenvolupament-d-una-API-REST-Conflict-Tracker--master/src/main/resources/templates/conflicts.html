@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Conflict Tracker - Web View</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .status-ACTIVE { color: red; font-weight: bold; }
+    .status-FROZEN { color: orange; font-weight: bold; }
+    .status-ENDED { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>Conflict Tracker (Thymeleaf)</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>Status</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="conflict : ${conflicts}">
+    <td th:text="${conflict.name}"></td>
+    <td th:text="${conflict.startDate}"></td>
+    <td th:text="${conflict.status}"
+        th:class="'status-' + ${conflict.status}">
+    </td>
+    <td th:text="${#strings.abbreviate(conflict.description, 80)}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
