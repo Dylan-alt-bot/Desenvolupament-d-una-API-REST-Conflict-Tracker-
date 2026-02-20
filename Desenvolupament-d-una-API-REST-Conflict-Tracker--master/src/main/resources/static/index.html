@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Conflict Tracker API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+<h1>Conflict Tracker API - Dades</h1>
+
+<table id="conflictsTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Data d'Inici</th>
+        <th>Estat</th>
+        <th>Descripció</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Les dades s'inseriran aquí via JavaScript -->
+    </tbody>
+</table>
+
+<script>
+    // Cridem a la nostra API utilitzant Fetch
+    fetch('/api/v1/conflicts')
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector('#conflictsTable tbody');
+            data.forEach(conflict => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${conflict.id}</td>
+                    <td>${conflict.name}</td>
+                    <td>${conflict.startDate}</td>
+                    <td>${conflict.status}</td>
+                    <td>${conflict.description}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        })
+        .catch(error => console.error('Error carregant les dades:', error));
+</script>
+</body>
+</html>
